@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-nginx
+  namespace: argocd
+spec:
+  project: argo-demo
+  source:
+    repoURL: https://github.com/YutangShi/test-argocd.git
+    targetRevision: HEAD
+    path: "apps/argocd-nginx.yml"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
