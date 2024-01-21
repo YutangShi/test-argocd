@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: sample-app
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: sample-app
