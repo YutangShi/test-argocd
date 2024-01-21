@@ -24,13 +24,12 @@ metadata:
   name: nginx
   namespace: argo-demo
 spec:
-  type: LoadBalancer
-  selector:
-    app.kubernetes.io/name: nginx
   ports:
     - protocol: TCP
       port: 80
       targetPort: http
+  selector:
+    app.kubernetes.io/name: nginx
 ---
 apiVersion: apps/v1
 kind: Deployment
