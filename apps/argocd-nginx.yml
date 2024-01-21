@@ -2,6 +2,21 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: argo-demo
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argo-nginx
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`argo-nginx.allenshi.com`)
+      kind: Rule
+      services:
+        - name: nginx
+          port: 80
 ---
 apiVersion: v1
 kind: Service
