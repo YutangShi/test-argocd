@@ -29,27 +29,27 @@ spec:
       port: 80
       targetPort: http
   selector:
-    app.kubernetes.io/name: nginx
+    app.kubernetes.io/name: argo-nginx
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: argo-nginx
   namespace: argo-demo
   labels:
-    app.kubernetes.io/name: nginx
+    app.kubernetes.io/name: argo-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: nginx
+      app.kubernetes.io/name: argo-nginx
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: nginx
+        app.kubernetes.io/name: argo-nginx
     spec:
       containers:
-      - name: nginx
+      - name: argo-nginx
         image: nginx:latest
         ports:
           - name: http
