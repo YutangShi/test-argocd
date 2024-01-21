@@ -9,9 +9,9 @@ spec:
     repoURL: https://github.com/kurtburak/argocd.git
     targetRevision: HEAD
     path: sample-app/
-    helm:
-      valueFiles:
-        - values.yaml
+#    helm:
+#      valueFiles:
+#        - values.yaml
     destination:
       server: https://kubernetes.default.svc
       namespace: argocd
